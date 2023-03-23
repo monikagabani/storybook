@@ -1,9 +1,11 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { StoryBookSharedModule } from 'projects/storycomponent/src/app/app.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { StorybookModule } from './components/storybook/storybook.module';
 
 @NgModule({
   declarations: [
@@ -12,14 +14,15 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoryBookSharedModule.forRoot()
+    FormsModule,
+    StorybookModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-export class AppSharedModule {
+export class StoryBookSharedModule {
   static forRoot(): ModuleWithProviders<any> {
     return {
       ngModule: AppModule,
